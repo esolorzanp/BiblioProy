@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7544394e-e81a-4347-b371-5a88381341f1" name="Changes" comment="" />
+    <list default="true" id="7544394e-e81a-4347-b371-5a88381341f1" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiblioProyDemo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BiblioProyDemo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Autor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Autor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Editorial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Editorial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Genero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Genero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Libro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Pais.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Pais.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Persona.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -30,10 +39,34 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true"
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/Uniajc/Personal/BiblioProyDemo/src/bussines",
+    "project.structure.last.edited": "Libraries",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
   }
 }]]></component>
-  <component name="RunManager">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\Uniajc\Personal\BiblioProyDemo\src\bussines" />
+      <recent name="D:\Uniajc\Personal\BiblioProyDemo\src\db" />
+      <recent name="D:\Uniajc\Personal\BiblioProyDemo\src\utils" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.PersonaDao">
+    <configuration name="ConexionDB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="db.ConexionDB" />
+      <module name="BiblioProyDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="db.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="BiblioProyDemo" />
@@ -41,8 +74,23 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PersonaDao" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bussines.PersonaDao" />
+      <module name="BiblioProyDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bussines.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PersonaDao" />
+        <item itemvalue="Application.ConexionDB" />
         <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>

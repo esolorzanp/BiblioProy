@@ -118,7 +118,7 @@ public class Libro {
                 ", anoPublicacion=" + anoPublicacion +
                 ", prestadoEn=" + prestadoEn +
                 ", diasPrestamo=" + diasPrestamo +
-                '}';
+                '}' + '\n';
     }
 
     public String[] getTitles() {

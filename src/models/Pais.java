@@ -35,7 +35,7 @@ public class Pais {
         return "Pais = {" +
                 "id=" + id +
                 ", pais='" + pais + '\'' +
-                '}';
+                '}' + '\n';
     }
 
     public String[] getTitles() {

@@ -201,7 +201,7 @@ public class Persona {
                 ", sexo=" + sexo +
                 ", idRepresentanteLegal=" + idRepresentanteLegal +
                 ", razonSocial='" + razonSocial + '\'' +
-                '}';
+                '}' + '\n';
     }
 
     public String[] getTitles() {

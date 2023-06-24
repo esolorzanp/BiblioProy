@@ -40,7 +40,7 @@ public class Autor {
         return "Autor = {" +
                 "id=" + id +
                 ", idAutor=" + idAutor +
-                '}';
+                '}' + '\n';
     }
 
     public String[] getTitles() {
