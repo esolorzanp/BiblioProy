@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7544394e-e81a-4347-b371-5a88381341f1" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bussines/AutorDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bussines/EditorialDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bussines/GeneroDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bussines/LibroDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/bussines/PaisDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BiblioProyDemo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/BiblioProyDemo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Autor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Autor.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Editorial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Editorial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Genero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Genero.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Libro.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/Pais.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Pais.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Persona.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,6 +41,7 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "last_opened_file_path": "D:/Uniajc/Personal/BiblioProyDemo/src/bussines",
     "project.structure.last.edited": "Libraries",
     "project.structure.proportion": "0.0",
@@ -53,7 +55,7 @@
       <recent name="D:\Uniajc\Personal\BiblioProyDemo\src\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PersonaDao">
+  <component name="RunManager" selected="Application.PaisDAO">
     <configuration name="ConexionDB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="db.ConexionDB" />
       <module name="BiblioProyDemo" />
@@ -67,9 +69,35 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="EditorialDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bussines.EditorialDAO" />
+      <module name="BiblioProyDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bussines.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
       <module name="BiblioProyDemo" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PaisDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="bussines.PaisDAO" />
+      <module name="BiblioProyDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="bussines.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -89,6 +117,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PaisDAO" />
+        <item itemvalue="Application.EditorialDAO" />
         <item itemvalue="Application.PersonaDao" />
         <item itemvalue="Application.ConexionDB" />
         <item itemvalue="Application.Main" />

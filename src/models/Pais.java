@@ -14,6 +14,11 @@ public class Pais {
         this.pais = "";
     }
 
+    public Pais(String pais) {
+        this.id = -1;
+        this.pais = pais;
+    }
+
     public int getId() {
         return id;
     }
@@ -35,7 +40,7 @@ public class Pais {
         return "Pais = {" +
                 "id=" + id +
                 ", pais='" + pais + '\'' +
-                '}' + '\n';
+                '}';
     }
 
     public String[] getTitles() {

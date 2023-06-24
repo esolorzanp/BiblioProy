@@ -59,7 +59,7 @@ public class Editorial {
                 "id=" + id +
                 ", editorial='" + editorial + '\'' +
                 ", idPais=" + idPais +
-                '}' + '\n';
+                '}';
     }
 
     public String[] getTitles() {
