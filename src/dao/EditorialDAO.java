@@ -1,4 +1,4 @@
-package bussines;
+package dao;
 
 import db.ConexionDB;
 import models.Editorial;

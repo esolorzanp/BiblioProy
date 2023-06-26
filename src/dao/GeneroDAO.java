@@ -1,4 +1,4 @@
-package bussines;
+package dao;
 
 public class GeneroDAO {
 

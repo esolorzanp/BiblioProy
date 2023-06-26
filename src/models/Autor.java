@@ -2,21 +2,21 @@ package models;
 
 public class Autor {
     private int id;
-    private int idAutor;
+    private int idPersona;
 
-    public Autor(int id, int idAutor) {
+    public Autor(int id, int idPersona) {
         this.id = id;
-        this.idAutor = idAutor;
+        this.idPersona = idPersona;
     }
 
-    public Autor(int idAutor) {
+    public Autor(int idPersona) {
         this.id = -1;
-        this.idAutor = idAutor;
+        this.idPersona = idPersona;
     }
 
     public Autor() {
         this.id = -1;
-        this.idAutor = -1;
+        this.idPersona = -1;
     }
 
     public int getId() {
@@ -27,33 +27,33 @@ public class Autor {
         this.id = id;
     }
 
-    public int getIdAutor() {
-        return idAutor;
+    public int getIdPersona() {
+        return idPersona;
     }
 
-    public void setIdAutor(int idAutor) {
-        this.idAutor = idAutor;
+    public void setIdPersona(int idPersona) {
+        this.idPersona = idPersona;
     }
 
     @Override
     public String toString() {
         return "Autor = {" +
                 "id=" + id +
-                ", idAutor=" + idAutor +
+                ", idPersona=" + idPersona +
                 '}' + '\n';
     }
 
     public String[] getTitles() {
         return new String[]{
                 "Id",
-                "Id Autor"
+                "Id persona"
         };
     }
 
     public String[] getDats() {
         return new String[]{
                 String.valueOf(getId()),
-                String.valueOf(getIdAutor())
+                String.valueOf(getIdPersona())
         };
     }
 }
