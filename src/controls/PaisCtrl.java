@@ -6,10 +6,10 @@ import models.Pais;
 import java.util.Iterator;
 import java.util.List;
 
-public class PaisesCtrl {
+public class PaisCtrl {
     List<Pais> paises;
 
-    public PaisesCtrl() {
+    public PaisCtrl() {
         paises = PaisDAO.getAll();
     }
 
@@ -75,7 +75,7 @@ public class PaisesCtrl {
     }
 
     public static void main(String[] args) {
-        PaisesCtrl pct = new PaisesCtrl();
+        PaisCtrl pct = new PaisCtrl();
 
         String sp1 = "Paraguay";
         Pais p1 = new Pais(sp1);

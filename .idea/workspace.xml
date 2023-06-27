@@ -2,17 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7544394e-e81a-4347-b371-5a88381341f1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controls/AutorCtrl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controls/EditorialCtrl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controls/PaisesCtrl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controls/GeneroCtrl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bussines/AutorDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/AutorDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bussines/EditorialDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/EditorialDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bussines/GeneroDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/GeneroDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bussines/LibroDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/LibroDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bussines/PaisDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PaisDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/bussines/PersonaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PersonaDao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Autor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Autor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controls/PaisesCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controls/PaisCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/GeneroDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/GeneroDAO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +50,7 @@
       <recent name="D:\Uniajc\Personal\BiblioProyDemo\src\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PaisesCtrl">
+  <component name="RunManager" selected="Application.PaisCtrl">
     <configuration name="ConexionDB" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="db.ConexionDB" />
       <module name="BiblioProyDemo" />
@@ -84,12 +77,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaisDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="dao.PaisDAO" />
+    <configuration name="PaisCtrl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="controls.PaisCtrl" />
       <module name="BiblioProyDemo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="dao.*" />
+          <option name="PATTERN" value="controls.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -97,12 +90,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaisesCtrl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="controls.PaisesCtrl" />
+    <configuration name="PaisDAO" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dao.PaisDAO" />
       <module name="BiblioProyDemo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="controls.*" />
+          <option name="PATTERN" value="dao.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -125,7 +118,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PaisesCtrl" />
+        <item itemvalue="Application.PaisCtrl" />
         <item itemvalue="Application.PaisDAO" />
         <item itemvalue="Application.EditorialDAO" />
         <item itemvalue="Application.PersonaDao" />
