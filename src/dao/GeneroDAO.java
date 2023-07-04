@@ -62,14 +62,14 @@ public class GeneroDAO {
         return b;
     }
 
-    public static boolean exist(int generox) {
+    public static boolean exist(String generoX) {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
         Genero x = null;
         boolean b = true;
 
-        con.consultar("SELECT * FROM GENEROS WHERE GENERO = '" + generox + '\'');
+        con.consultar("SELECT * FROM GENEROS WHERE GENERO = '" + generoX + '\'');
         try {
             if (!con.rs.next()) {
                 b = false;
@@ -167,7 +167,7 @@ public class GeneroDAO {
         con.cargarConexion();
         List<Genero> personas = new ArrayList<>();
 
-        con.consultar("SELECT * FROM GENEROS ");
+        con.consultar("SELECT * FROM GENEROS ORDER BY GENERO");
         try {
             while (con.rs.next()) {
                 Genero p = new Genero();

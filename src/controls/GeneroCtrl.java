@@ -3,11 +3,12 @@ package controls;
 import dao.GeneroDAO;
 import models.Genero;
 
+import javax.swing.table.DefaultTableModel;
 import java.util.Iterator;
 import java.util.List;
 
 public class GeneroCtrl {
-    List<Genero> generos;
+    public List<Genero> generos;
 
     public GeneroCtrl() {
         generos = GeneroDAO.getAll();
@@ -68,9 +69,19 @@ public class GeneroCtrl {
         return null;
     }
 
-    public boolean exist(int idPersonax) {
+    public boolean exist(String idPersonax) {
         return GeneroDAO.exist(idPersonax);
     }
 
-
+    public DefaultTableModel getDefaultTableModel() {
+        DefaultTableModel dtm = new DefaultTableModel();
+        Genero ge = new Genero();
+        dtm.setColumnIdentifiers(ge.getTitles());
+        if (generos.size() > 0) {
+            for (Genero g : generos) {
+                dtm.addRow(g.getData());
+            }
+        }
+        return dtm;
+    }
 }
