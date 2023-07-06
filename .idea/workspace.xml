@@ -2,13 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7544394e-e81a-4347-b371-5a88381341f1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/views/GeneroGTN.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/GeneroGTN.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/GeneroQry.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/GeneroQry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controls/comparate/GeneroGeneroComparator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controls/GeneroCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controls/GeneroCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/GeneroDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/GeneroDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Genero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Genero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/GeneroGTN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GeneroGTN.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

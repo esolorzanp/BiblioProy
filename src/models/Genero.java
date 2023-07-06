@@ -40,7 +40,7 @@ public class Genero {
         return "Genero = {" +
                 "id=" + id +
                 ", genero='" + genero + '\'' +
-                '}' + '\n';
+                '}';
     }
 
     public String[] getTitles() {

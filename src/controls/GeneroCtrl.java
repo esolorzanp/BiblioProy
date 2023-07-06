@@ -1,9 +1,11 @@
 package controls;
 
+import controls.comparate.GeneroGeneroComparator;
 import dao.GeneroDAO;
 import models.Genero;
 
 import javax.swing.table.DefaultTableModel;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -18,6 +20,7 @@ public class GeneroCtrl {
         if (GeneroDAO.add(generox)) {
             Genero x = GeneroDAO.getBy(generox.getGenero());
             generos.add(x);
+            Collections.sort(generos, new GeneroGeneroComparator());
         }
         return true;
     }
@@ -27,6 +30,7 @@ public class GeneroCtrl {
             Genero x = GeneroDAO.getBy(genero.getGenero());
             int n = getIndexOfBy(x.getGenero());
             generos.set(n, x);
+            Collections.sort(generos, new GeneroGeneroComparator());
         } else {
             return false;
         }
@@ -34,11 +38,13 @@ public class GeneroCtrl {
     }
 
     public boolean delete(String generox) {
+        Genero p = GeneroDAO.getBy(generox);
+        int n = getIndexOfBy(p.getGenero());
         if (GeneroDAO.delete(generox)) {
-            Genero p = GeneroDAO.getBy(generox);
-            int n = getIndexOfBy(p.getGenero());
-            if (n != -1)
+            if (n != -1) {
                 generos.remove(n);
+                Collections.sort(generos, new GeneroGeneroComparator());
+            }
         } else {
             return false;
         }
