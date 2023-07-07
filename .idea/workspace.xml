@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7544394e-e81a-4347-b371-5a88381341f1" name="Changes" comment="GeneroGTN.java &#10;** Se agregan eventos KeyListener&#10;** Se agrega parámetro Lambda en eventos de botón&#10;** Se crea función para actualizar datos en forma desde JTable&#10;** Se agrega método para validar campos forma y se asignan en métodos onAdd, onModify &#10;** Se agrega metodo onDelete&#10;&#10;Genero&#10;** Se elimina salto de línea en método toString&#10;&#10;GeneroCtrl&#10;** Se agrega método para ordenar generos por campo genero con Collections.sort&#10;&#10;GeneroGeneroComparator&#10;** Se agrega clase para hacer ordenamiento con método Collections.sort">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controls/GeneroCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controls/GeneroCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/GeneroDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/GeneroDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/GeneroGTN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GeneroGTN.java" afterDir="false" />
-    </list>
+    <list default="true" id="7544394e-e81a-4347-b371-5a88381341f1" name="Changes" comment="** Se incluye funcionamiento metodo onSearch()&#10;** Se incluye funcionamiento de métodos onFirst onLast onBefore onNext&#10;** Se ajusta cambio de estado de botones" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,7 +137,14 @@
       <option name="project" value="LOCAL" />
       <updated>1688617656740</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="** Se incluye funcionamiento metodo onSearch()&#10;** Se incluye funcionamiento de métodos onFirst onLast onBefore onNext&#10;** Se ajusta cambio de estado de botones">
+      <created>1688707622961</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1688707622961</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -150,7 +152,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="develop" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -158,6 +172,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="GeneroGTN.java &#10;** Se agregan eventos KeyListener&#10;** Se agrega parámetro Lambda en eventos de botón&#10;** Se crea función para actualizar datos en forma desde JTable&#10;** Se agrega método para validar campos forma y se asignan en métodos onAdd, onModify &#10;** Se agrega metodo onDelete&#10;&#10;Genero&#10;** Se elimina salto de línea en método toString&#10;&#10;GeneroCtrl&#10;** Se agrega método para ordenar generos por campo genero con Collections.sort&#10;&#10;GeneroGeneroComparator&#10;** Se agrega clase para hacer ordenamiento con método Collections.sort" />
-    <option name="LAST_COMMIT_MESSAGE" value="GeneroGTN.java &#10;** Se agregan eventos KeyListener&#10;** Se agrega parámetro Lambda en eventos de botón&#10;** Se crea función para actualizar datos en forma desde JTable&#10;** Se agrega método para validar campos forma y se asignan en métodos onAdd, onModify &#10;** Se agrega metodo onDelete&#10;&#10;Genero&#10;** Se elimina salto de línea en método toString&#10;&#10;GeneroCtrl&#10;** Se agrega método para ordenar generos por campo genero con Collections.sort&#10;&#10;GeneroGeneroComparator&#10;** Se agrega clase para hacer ordenamiento con método Collections.sort" />
+    <MESSAGE value="** Se incluye funcionamiento metodo onSearch()&#10;** Se incluye funcionamiento de métodos onFirst onLast onBefore onNext&#10;** Se ajusta cambio de estado de botones" />
+    <option name="LAST_COMMIT_MESSAGE" value="** Se incluye funcionamiento metodo onSearch()&#10;** Se incluye funcionamiento de métodos onFirst onLast onBefore onNext&#10;** Se ajusta cambio de estado de botones" />
   </component>
 </project>
