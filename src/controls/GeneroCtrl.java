@@ -13,7 +13,7 @@ public class GeneroCtrl {
     public List<Genero> generos;
 
     public GeneroCtrl() {
-        generos = GeneroDAO.getAll();
+        getAll();
     }
 
     public boolean add(Genero generox) {
@@ -80,7 +80,13 @@ public class GeneroCtrl {
     }
 
     public DefaultTableModel getDefaultTableModel() {
-        DefaultTableModel dtm = new DefaultTableModel();
+        DefaultTableModel dtm = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+
         Genero ge = new Genero();
         dtm.setColumnIdentifiers(ge.getTitles());
         if (generos.size() > 0) {
@@ -89,5 +95,13 @@ public class GeneroCtrl {
             }
         }
         return dtm;
+    }
+
+    public void getAll() {
+        generos = GeneroDAO.getAll();
+    }
+
+    public void getAllWithWhereGenero(String generoX) {
+        generos = GeneroDAO.getAllWithWhereGenero(generoX);
     }
 }

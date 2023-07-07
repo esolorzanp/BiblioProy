@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7544394e-e81a-4347-b371-5a88381341f1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/controls/comparate/GeneroGeneroComparator.java" afterDir="false" />
+    <list default="true" id="7544394e-e81a-4347-b371-5a88381341f1" name="Changes" comment="GeneroGTN.java &#10;** Se agregan eventos KeyListener&#10;** Se agrega parámetro Lambda en eventos de botón&#10;** Se crea función para actualizar datos en forma desde JTable&#10;** Se agrega método para validar campos forma y se asignan en métodos onAdd, onModify &#10;** Se agrega metodo onDelete&#10;&#10;Genero&#10;** Se elimina salto de línea en método toString&#10;&#10;GeneroCtrl&#10;** Se agrega método para ordenar generos por campo genero con Collections.sort&#10;&#10;GeneroGeneroComparator&#10;** Se agrega clase para hacer ordenamiento con método Collections.sort">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/controls/GeneroCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controls/GeneroCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Genero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Genero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/GeneroDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/GeneroDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/GeneroGTN.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GeneroGTN.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -136,6 +135,14 @@
       <option name="presentableId" value="Default" />
       <updated>1687573562983</updated>
     </task>
+    <task id="LOCAL-00001" summary="GeneroGTN.java &#10;** Se agregan eventos KeyListener&#10;** Se agrega parámetro Lambda en eventos de botón&#10;** Se crea función para actualizar datos en forma desde JTable&#10;** Se agrega método para validar campos forma y se asignan en métodos onAdd, onModify &#10;** Se agrega metodo onDelete&#10;&#10;Genero&#10;** Se elimina salto de línea en método toString&#10;&#10;GeneroCtrl&#10;** Se agrega método para ordenar generos por campo genero con Collections.sort&#10;&#10;GeneroGeneroComparator&#10;** Se agrega clase para hacer ordenamiento con método Collections.sort">
+      <created>1688617656740</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1688617656740</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -148,5 +155,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="GeneroGTN.java &#10;** Se agregan eventos KeyListener&#10;** Se agrega parámetro Lambda en eventos de botón&#10;** Se crea función para actualizar datos en forma desde JTable&#10;** Se agrega método para validar campos forma y se asignan en métodos onAdd, onModify &#10;** Se agrega metodo onDelete&#10;&#10;Genero&#10;** Se elimina salto de línea en método toString&#10;&#10;GeneroCtrl&#10;** Se agrega método para ordenar generos por campo genero con Collections.sort&#10;&#10;GeneroGeneroComparator&#10;** Se agrega clase para hacer ordenamiento con método Collections.sort" />
+    <option name="LAST_COMMIT_MESSAGE" value="GeneroGTN.java &#10;** Se agregan eventos KeyListener&#10;** Se agrega parámetro Lambda en eventos de botón&#10;** Se crea función para actualizar datos en forma desde JTable&#10;** Se agrega método para validar campos forma y se asignan en métodos onAdd, onModify &#10;** Se agrega metodo onDelete&#10;&#10;Genero&#10;** Se elimina salto de línea en método toString&#10;&#10;GeneroCtrl&#10;** Se agrega método para ordenar generos por campo genero con Collections.sort&#10;&#10;GeneroGeneroComparator&#10;** Se agrega clase para hacer ordenamiento con método Collections.sort" />
   </component>
 </project>

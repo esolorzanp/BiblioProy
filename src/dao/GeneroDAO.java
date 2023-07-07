@@ -187,4 +187,33 @@ public class GeneroDAO {
         return personas;
     }
 
+    public static List<Genero> getAllWithWhereGenero(String generoX) {
+        ConexionDB con = new ConexionDB();
+        con.cargarDatosConexion();
+        con.cargarConexion();
+        List<Genero> personas = new ArrayList<>();
+
+        con.consultar("SELECT * FROM GENEROS" +
+                " WHERE GENERO LIKE '%" + generoX + "%'" +
+                " ORDER BY GENERO"
+
+        );
+        try {
+            while (con.rs.next()) {
+                Genero p = new Genero();
+                p.setId(con.rs.getInt("ID"));
+                p.setGenero(con.rs.getString("GENERO"));
+                personas.add(p);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getCause());
+            ex.printStackTrace();
+        } finally {
+            con.cerrarRs();
+            con.cerrarStmt();
+            con.cerrarConexion();
+        }
+        return personas;
+    }
 }

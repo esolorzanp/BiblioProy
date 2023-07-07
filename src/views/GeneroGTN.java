@@ -26,10 +26,12 @@ public class GeneroGTN extends JDialog {
     private JTable tableGeneros;
     private GeneroCtrl generoCtrl;
     private Genero generoSelected;
+    private int rowToSelect;
 
     public GeneroGTN() {
         generoCtrl = new GeneroCtrl();
         generoSelected = null;
+        rowToSelect = -1;
         setContentPane(contentPane);
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
@@ -40,18 +42,18 @@ public class GeneroGTN extends JDialog {
         modifyButton.setEnabled(false);
         deleteButton.setEnabled(false);
 
-        if (generoCtrl.generos.size() > 0) {
-            firstButton.setEnabled(false);
-            previousButton.setEnabled(false);
-            nextButton.setEnabled(true);
-            lastButton.setEnabled(true);
-        } else {
-            firstButton.setEnabled(false);
-            previousButton.setEnabled(false);
-            nextButton.setEnabled(false);
-            lastButton.setEnabled(false);
-        }
-
+//        if (generoCtrl.generos.size() > 0) {
+//            firstButton.setEnabled(false);
+//            previousButton.setEnabled(false);
+//            nextButton.setEnabled(true);
+//            lastButton.setEnabled(true);
+//        } else {
+//            firstButton.setEnabled(false);
+//            previousButton.setEnabled(false);
+//            nextButton.setEnabled(false);
+//            lastButton.setEnabled(false);
+//        }
+        setStateToButtonsNavigate();
         textFieldGenero.setEnabled(false);
 
         buttonOK.addActionListener(e -> onOK());
@@ -80,6 +82,12 @@ public class GeneroGTN extends JDialog {
         addButton.addActionListener(e -> onAdd());
         modifyButton.addActionListener(e -> onModify());
         deleteButton.addActionListener(e -> onDelete());
+        searchButton.addActionListener(e -> onSearch());
+        firstButton.addActionListener(e -> onFirst());
+        previousButton.addActionListener(e -> onPrevious());
+        nextButton.addActionListener(e -> onNext());
+        lastButton.addActionListener(e -> onLast());
+
         tableGeneros.addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -101,6 +109,7 @@ public class GeneroGTN extends JDialog {
 
     private void updateDataFieldsFormFromJTable(int row, int column) {
         if (row >= 0 && column >= 0) {
+            rowToSelect = row;
             String g = String.valueOf(tableGeneros.getValueAt(row, 1));
             generoSelected = generoCtrl.getBy(g);
             textFieldGenero.setText(g);
@@ -108,6 +117,7 @@ public class GeneroGTN extends JDialog {
             addButton.setEnabled(false);
             modifyButton.setEnabled(true);
             deleteButton.setEnabled(true);
+            setStateToButtonsNavigate();
         }
     }
 
@@ -163,6 +173,71 @@ public class GeneroGTN extends JDialog {
             } else {
                 JOptionPane.showMessageDialog(null, "Género no existe");
             }
+        }
+    }
+
+    private void onSearch() {
+        String s = textFieldSearch.getText();
+        if (!s.isEmpty()) {
+            generoCtrl.getAllWithWhereGenero(s);
+            cargarJTable();
+        }
+    }
+
+    private void onFirst() {
+        int size = tableGeneros.getRowCount();
+        if (size > 0) {
+            rowToSelect = 0;
+            tableGeneros.setRowSelectionInterval(rowToSelect, rowToSelect);
+            updateDataFieldsFormFromJTable(rowToSelect, rowToSelect);
+        }
+    }
+
+    private void onLast() {
+        int size = tableGeneros.getRowCount();
+        if (size > 0) {
+            rowToSelect = size - 1;
+            tableGeneros.setRowSelectionInterval(rowToSelect, rowToSelect);
+            updateDataFieldsFormFromJTable(rowToSelect, rowToSelect);
+        }
+    }
+
+    private void onPrevious() {
+        int size = tableGeneros.getRowCount();
+        if (size > 0 && rowToSelect > 0) {
+            rowToSelect--;
+            tableGeneros.setRowSelectionInterval(rowToSelect, rowToSelect);
+            updateDataFieldsFormFromJTable(rowToSelect, rowToSelect);
+        }
+    }
+
+    private void onNext() {
+        int size = tableGeneros.getRowCount();
+        if (size > 0 && rowToSelect < (size - 1)) {
+            rowToSelect++;
+            tableGeneros.setRowSelectionInterval(rowToSelect, rowToSelect);
+            updateDataFieldsFormFromJTable(rowToSelect, rowToSelect);
+        }
+    }
+
+    private void setStateToButtonsNavigate() {
+        int size = tableGeneros.getRowCount();
+
+        if (rowToSelect <= 0) {
+            firstButton.setEnabled(false);
+            previousButton.setEnabled(false);
+            nextButton.setEnabled(true);
+            lastButton.setEnabled(true);
+        } else if (rowToSelect > 0 && rowToSelect < size - 1) {
+            firstButton.setEnabled(true);
+            previousButton.setEnabled(true);
+            nextButton.setEnabled(true);
+            lastButton.setEnabled(true);
+        } else if (rowToSelect == size - 1) {
+            firstButton.setEnabled(true);
+            previousButton.setEnabled(true);
+            nextButton.setEnabled(false);
+            lastButton.setEnabled(false);
         }
     }
 
