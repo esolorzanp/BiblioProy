@@ -16,18 +16,18 @@ public class GeneroCtrl {
         getAll();
     }
 
-    public boolean add(Genero generox) {
-        if (GeneroDAO.add(generox)) {
-            Genero x = GeneroDAO.getBy(generox.getGenero());
+    public boolean add(Genero generoX) {
+        if (GeneroDAO.add(generoX)) {
+            Genero x = GeneroDAO.getBy(generoX.getGenero());
             generos.add(x);
             Collections.sort(generos, new GeneroGeneroComparator());
         }
         return true;
     }
 
-    public boolean modify(Genero genero) {
-        if (GeneroDAO.modify(genero)) {
-            Genero x = GeneroDAO.getBy(genero.getGenero());
+    public boolean modify(Genero generoX) {
+        if (GeneroDAO.modify(generoX)) {
+            Genero x = GeneroDAO.getBy(generoX.getGenero());
             int n = getIndexOfBy(x.getGenero());
             generos.set(n, x);
             Collections.sort(generos, new GeneroGeneroComparator());
@@ -37,10 +37,10 @@ public class GeneroCtrl {
         return true;
     }
 
-    public boolean delete(String generox) {
-        Genero p = GeneroDAO.getBy(generox);
+    public boolean delete(String generoX) {
+        Genero p = GeneroDAO.getBy(generoX);
         int n = getIndexOfBy(p.getGenero());
-        if (GeneroDAO.delete(generox)) {
+        if (GeneroDAO.delete(generoX)) {
             if (n != -1) {
                 generos.remove(n);
                 Collections.sort(generos, new GeneroGeneroComparator());
@@ -51,12 +51,12 @@ public class GeneroCtrl {
         return true;
     }
 
-    public int getIndexOfBy(String generox) {
+    public int getIndexOfBy(String generoX) {
         int n = -1;
         Iterator<Genero> iterator = generos.iterator();
         while (iterator.hasNext()) {
             Genero x = iterator.next();
-            if (x.getGenero().equals(generox)) {
+            if (x.getGenero().equals(generoX)) {
                 n = generos.indexOf(x);
                 break;
             }
@@ -64,11 +64,11 @@ public class GeneroCtrl {
         return n;
     }
 
-    public Genero getBy(String generox) {
+    public Genero getBy(String generoX) {
         Iterator<Genero> iterator = generos.iterator();
         while (iterator.hasNext()) {
             Genero x = iterator.next();
-            if (x.getGenero() == generox) {
+            if (x.getGenero() == generoX) {
                 return x;
             }
         }

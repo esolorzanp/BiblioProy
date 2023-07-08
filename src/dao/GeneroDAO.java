@@ -7,14 +7,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class GeneroDAO {
-    public static boolean add(Genero x) {
+    public static boolean add(Genero generoX) {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
         boolean b = false;
 
         String sql = ("INSERT INTO GENEROS VALUES (NULL"
-                + ',' + '\'' + x.getGenero() + '\''
+                + ',' + '\'' + generoX.getGenero() + '\''
                 + ')');
 
         b = con.actualizar(sql);
@@ -26,15 +26,15 @@ public class GeneroDAO {
         return b;
     }
 
-    public static boolean modify(Genero x) {
+    public static boolean modify(Genero generoX) {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
         boolean b = false;
 
         String sql = "UPDATE GENEROS SET "
-                + "GENERO=" + '\'' + x.getGenero() + '\''
-                + " WHERE ID = " + x.getId();
+                + "GENERO=" + '\'' + generoX.getGenero() + '\''
+                + " WHERE ID = " + generoX.getId();
 
         b = con.actualizar(sql);
 
@@ -86,14 +86,14 @@ public class GeneroDAO {
         return b;
     }
 
-    public static Genero getByWithPersona(int generox) {
+    public static Genero getByWithPersona(int generoX) {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
         Genero x = new Genero();
 
         con.consultar("SELECT * FROM GENEROS " +
-                "WHERE GENEROS = '" + generox + '\'');
+                "WHERE GENEROS = '" + generoX + '\'');
         try {
             if (con.rs.next()) {
                 x.setId(con.rs.getInt("ID"));
@@ -111,14 +111,14 @@ public class GeneroDAO {
         return x;
     }
 
-    public static Genero getBy(String generox) {
+    public static Genero getBy(String generoX) {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
         Genero x = new Genero();
 
         con.consultar("SELECT * FROM GENEROS " +
-                "WHERE GENERO = '" + generox + '\'');
+                "WHERE GENERO = '" + generoX + '\'');
         try {
             if (con.rs.next()) {
                 x.setId(con.rs.getInt("ID"));
@@ -136,14 +136,14 @@ public class GeneroDAO {
         return x;
     }
 
-    public static Genero getBy(int idx) {
+    public static Genero getBy(int idX) {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
         Genero x = new Genero();
 
         con.consultar("SELECT * FROM GENEROS " +
-                "WHERE ID = '" + idx + '\'');
+                "WHERE ID = '" + idX + '\'');
         try {
             if (con.rs.next()) {
                 x.setId(con.rs.getInt("ID"));

@@ -1,7 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="7544394e-e81a-4347-b371-5a88381341f1" name="Changes" comment="** Se incluye funcionamiento metodo onSearch()&#10;** Se incluye funcionamiento de métodos onFirst onLast onBefore onNext&#10;** Se ajusta cambio de estado de botones" />
+    <list default="true" id="7544394e-e81a-4347-b371-5a88381341f1" name="Changes" comment="** Se incluye funcionamiento metodo onSearch()&#10;** Se incluye funcionamiento de métodos onFirst onLast onBefore onNext&#10;** Se ajusta cambio de estado de botones">
+      <change beforePath="$PROJECT_DIR$/src/controls/GeneroCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controls/GeneroCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/GeneroDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/GeneroDAO.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
