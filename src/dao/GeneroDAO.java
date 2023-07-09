@@ -62,7 +62,7 @@ public class GeneroDAO {
         return b;
     }
 
-    public static boolean exist(String generoX) {
+    public static boolean existWithWhereGenero(String generoX) {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
@@ -70,6 +70,30 @@ public class GeneroDAO {
         boolean b = true;
 
         con.consultar("SELECT * FROM GENEROS WHERE GENERO = '" + generoX + '\'');
+        try {
+            if (!con.rs.next()) {
+                b = false;
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getCause());
+            ex.printStackTrace();
+        } finally {
+            con.cerrarRs();
+            con.cerrarStmt();
+            con.cerrarConexion();
+        }
+        return b;
+    }
+
+    public static boolean existWithWhereId(int idX) {
+        ConexionDB con = new ConexionDB();
+        con.cargarDatosConexion();
+        con.cargarConexion();
+        Genero x = null;
+        boolean b = true;
+
+        con.consultar("SELECT * FROM GENEROS WHERE ID = " + idX);
         try {
             if (!con.rs.next()) {
                 b = false;

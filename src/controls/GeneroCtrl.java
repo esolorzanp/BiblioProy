@@ -68,15 +68,19 @@ public class GeneroCtrl {
         Iterator<Genero> iterator = generos.iterator();
         while (iterator.hasNext()) {
             Genero x = iterator.next();
-            if (x.getGenero() == generoX) {
+            if (x.getGenero().equals(generoX)) {
                 return x;
             }
         }
         return null;
     }
 
-    public boolean exist(String idPersonax) {
-        return GeneroDAO.exist(idPersonax);
+    public boolean existWithWhereGenero(String generoX) {
+        return GeneroDAO.existWithWhereGenero(generoX);
+    }
+
+    public boolean existWithWhereId(int idX) {
+        return GeneroDAO.existWithWhereId(idX);
     }
 
     public DefaultTableModel getDefaultTableModel() {
@@ -86,9 +90,8 @@ public class GeneroCtrl {
                 return false;
             }
         };
-
-        Genero ge = new Genero();
-        dtm.setColumnIdentifiers(ge.getTitles());
+        Genero generoX = new Genero();
+        dtm.setColumnIdentifiers(generoX.getTitles());
         if (generos.size() > 0) {
             for (Genero g : generos) {
                 dtm.addRow(g.getData());

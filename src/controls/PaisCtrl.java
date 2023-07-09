@@ -1,8 +1,11 @@
 package controls;
 
+import controls.comparate.PaisPaisComparator;
 import dao.PaisDAO;
 import models.Pais;
 
+import javax.swing.table.DefaultTableModel;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
@@ -13,43 +16,47 @@ public class PaisCtrl {
         paises = PaisDAO.getAll();
     }
 
-    public boolean add(Pais pais) {
-        if (PaisDAO.add(pais)) {
-            Pais p = PaisDAO.getBy(pais.getPais());
+    public boolean add(Pais paisX) {
+        if (PaisDAO.add(paisX)) {
+            Pais p = PaisDAO.getBy(paisX.getPais());
             paises.add(p);
+            Collections.sort(paises, new PaisPaisComparator());
         }
         return true;
     }
 
-    public boolean modify(Pais pais) {
-        if (PaisDAO.modify(pais)) {
-            Pais p = PaisDAO.getBy(pais.getPais());
+    public boolean modify(Pais paisX) {
+        if (PaisDAO.modify(paisX)) {
+            Pais p = PaisDAO.getBy(paisX.getPais());
             int n = getIndexOfBy(p.getPais());
             paises.set(n, p);
+            Collections.sort(paises, new PaisPaisComparator());
         } else {
             return false;
         }
         return true;
     }
 
-    public boolean delete(String paisx) {
-        if (PaisDAO.delete(paisx)) {
-            Pais p = PaisDAO.getBy(paisx);
-            int n = getIndexOfBy(p.getPais());
-            if (n != -1)
+    public boolean delete(String paisX) {
+        Pais p = PaisDAO.getBy(paisX);
+        int n = getIndexOfBy(p.getPais());
+        if (PaisDAO.delete(paisX)) {
+            if (n != -1) {
                 paises.remove(n);
+                Collections.sort(paises, new PaisPaisComparator());
+            }
         } else {
             return false;
         }
         return true;
     }
 
-    public int getIndexOfBy(String paisx) {
+    public int getIndexOfBy(String paisX) {
         int n = -1;
         Iterator<Pais> iterator = paises.iterator();
         while (iterator.hasNext()) {
             Pais p = iterator.next();
-            if (p.getPais().equals(paisx)) {
+            if (p.getPais().equals(paisX)) {
                 n = paises.indexOf(p);
                 break;
             }
@@ -57,12 +64,12 @@ public class PaisCtrl {
         return n;
     }
 
-    public Pais getBy(String paisx) {
+    public Pais getBy(String paisX) {
         Pais p = null;
         Iterator<Pais> iterator = paises.iterator();
         while (iterator.hasNext()) {
             Pais x = iterator.next();
-            if (x.getPais().equals(paisx)) {
+            if (x.getPais().equals(paisX)) {
                 p = x;
                 break;
             }
@@ -70,8 +77,37 @@ public class PaisCtrl {
         return p;
     }
 
-    public boolean exist(String paisx) {
-        return PaisDAO.exist(paisx);
+    public boolean existWithWherePais(String paisX) {
+        return PaisDAO.existWithWherePais(paisX);
+    }
+
+    public boolean existWithWhereId(int idX) {
+        return PaisDAO.existWithWhereId(idX);
+    }
+
+    public DefaultTableModel getDefaultTableModel() {
+        DefaultTableModel dtm = new DefaultTableModel() {
+            @Override
+            public boolean isCellEditable(int row, int column) {
+                return false;
+            }
+        };
+        Pais paisX = new Pais();
+        dtm.setColumnIdentifiers(paisX.getTitles());
+        if (paises.size() > 0) {
+            for (Pais pais : paises) {
+                dtm.addRow(pais.getData());
+            }
+        }
+        return dtm;
+    }
+
+    public void getAll() {
+        paises = PaisDAO.getAll();
+    }
+
+    public void getAllWithWherePais(String paisX) {
+        paises = PaisDAO.getAllWithWherePais(paisX);
     }
 
     public static void main(String[] args) {
@@ -79,13 +115,13 @@ public class PaisCtrl {
 
         String sp1 = "Paraguay";
         Pais p1 = new Pais(sp1);
-        System.out.println("Existe " + sp1 + ':' + pct.exist(sp1));
-        if (!pct.exist(sp1))
+        System.out.println("Existe " + sp1 + ':' + pct.existWithWherePais(sp1));
+        if (!pct.existWithWherePais(sp1))
             System.out.println("Agregar " + p1 + ':' + pct.add(p1));
 
         int n = pct.getIndexOfBy(sp1);
         System.out.println("Indice de " + sp1 + ':' + n);
-        if (pct.exist(p1.getPais())) {
+        if (pct.existWithWherePais(p1.getPais())) {
             Pais p2 = pct.getBy(p1.getPais());
             p2.setPais("Paraguay");
             System.out.println("Modificar " + p2 + ':' + pct.modify(p2));

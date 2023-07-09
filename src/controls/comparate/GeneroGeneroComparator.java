@@ -8,6 +8,6 @@ public class GeneroGeneroComparator implements Comparator<Genero> {
 
     @Override
     public int compare(Genero o1, Genero o2) {
-        return o1.getGenero().compareTo(o2.getGenero());
+        return o1.getGenero().toLowerCase().compareTo(o2.getGenero().toLowerCase());
     }
 }

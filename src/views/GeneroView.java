@@ -2,13 +2,14 @@ package views;
 
 import controls.GeneroCtrl;
 import models.Genero;
+import models.Pais;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.event.*;
 import java.util.Arrays;
 
-public class GeneroGTN extends JDialog {
+public class GeneroView extends JDialog {
     private JPanel contentPane;
     private JButton buttonOK;
     private JButton buttonCancel;
@@ -28,7 +29,7 @@ public class GeneroGTN extends JDialog {
     private Genero generoSelected;
     private int rowToSelect;
 
-    public GeneroGTN() {
+    public GeneroView() {
         generoCtrl = new GeneroCtrl();
         generoSelected = null;
         rowToSelect = -1;
@@ -42,17 +43,6 @@ public class GeneroGTN extends JDialog {
         modifyButton.setEnabled(false);
         deleteButton.setEnabled(false);
 
-//        if (generoCtrl.generos.size() > 0) {
-//            firstButton.setEnabled(false);
-//            previousButton.setEnabled(false);
-//            nextButton.setEnabled(true);
-//            lastButton.setEnabled(true);
-//        } else {
-//            firstButton.setEnabled(false);
-//            previousButton.setEnabled(false);
-//            nextButton.setEnabled(false);
-//            lastButton.setEnabled(false);
-//        }
         setStateToButtonsNavigate();
         textFieldGenero.setEnabled(false);
 
@@ -133,7 +123,7 @@ public class GeneroGTN extends JDialog {
     private void onAdd() {
         String g = textFieldGenero.getText();
         if (fieldsFormValidated()) {
-            if (!generoCtrl.exist(g)) {
+            if (!generoCtrl.existWithWhereGenero(g)) {
                 Genero generoX = new Genero();
                 generoX.setGenero(g);
                 if (generoCtrl.add(generoX)) {
@@ -147,11 +137,12 @@ public class GeneroGTN extends JDialog {
     }
 
     private void onModify() {
-        String g = textFieldGenero.getText();
+        String generoStr = textFieldGenero.getText();
         if (fieldsFormValidated()) {
-            if (!generoCtrl.exist(g)) {
-                Genero generoX = generoSelected;
-                generoX.setGenero(g);
+            Genero generoX = generoSelected;
+            int idX = generoX.getId();
+            if (generoCtrl.existWithWhereId(idX)) {
+                generoX.setGenero(generoStr);
                 if (generoCtrl.modify(generoX)) {
                     JOptionPane.showMessageDialog(null, "Género modificado");
                     cargarJTable();
@@ -165,7 +156,7 @@ public class GeneroGTN extends JDialog {
     private void onDelete() {
         String g = textFieldGenero.getText();
         if (fieldsFormValidated()) {
-            if (generoCtrl.exist(g)) {
+            if (generoCtrl.existWithWhereGenero(g)) {
                 if (generoCtrl.delete(g)) {
                     JOptionPane.showMessageDialog(null, "Género eliminado");
                     cargarJTable();
@@ -243,10 +234,20 @@ public class GeneroGTN extends JDialog {
 
     private boolean fieldsFormValidated() {
         boolean b = true;
-        String g = textFieldGenero.getText();
-        if (g.isEmpty()) {
+        String generoStr = textFieldGenero.getText();
+        if (generoStr.isEmpty()) {
             JOptionPane.showMessageDialog(null, "Género no puede estar vacío");
             b = false;
+        }
+        Genero generoX = generoCtrl.getBy(generoStr);
+        System.out.println("generoX=" + generoX);
+        System.out.println("generoSelected" + generoSelected);
+        if (generoX != null
+                && generoSelected != null
+                && generoStr.equals(generoX.getGenero())
+                && generoSelected.getId() != generoX.getId()) {
+            JOptionPane.showMessageDialog(null, "Registro no se puede modificar. Ya existe otro registro con el mismo genero");
+            return false;
         }
         return b;
     }
@@ -267,7 +268,7 @@ public class GeneroGTN extends JDialog {
     }
 
     public static void main(String[] args) {
-        GeneroGTN dialog = new GeneroGTN();
+        GeneroView dialog = new GeneroView();
         dialog.pack();
 //        dialog.setVisible(true);
         System.exit(0);
