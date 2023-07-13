@@ -53,9 +53,7 @@ public class GeneroCtrl {
 
     public int getIndexOfBy(String generoX) {
         int n = -1;
-        Iterator<Genero> iterator = generos.iterator();
-        while (iterator.hasNext()) {
-            Genero x = iterator.next();
+        for (Genero x : generos) {
             if (x.getGenero().equals(generoX)) {
                 n = generos.indexOf(x);
                 break;
@@ -65,9 +63,7 @@ public class GeneroCtrl {
     }
 
     public Genero getBy(String generoX) {
-        Iterator<Genero> iterator = generos.iterator();
-        while (iterator.hasNext()) {
-            Genero x = iterator.next();
+        for (Genero x : generos) {
             if (x.getGenero().equals(generoX)) {
                 return x;
             }

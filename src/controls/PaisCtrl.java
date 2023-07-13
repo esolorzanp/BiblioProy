@@ -4,23 +4,22 @@ import controls.comparate.PaisPaisComparator;
 import dao.PaisDAO;
 import models.Pais;
 
+import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.util.Collections;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 public class PaisCtrl {
     List<Pais> paises;
 
     public PaisCtrl() {
-        paises = PaisDAO.getAll();
+        this.getAll();
     }
 
     public boolean add(Pais paisX) {
         if (PaisDAO.add(paisX)) {
             Pais p = PaisDAO.getBy(paisX.getPais());
             paises.add(p);
-            Collections.sort(paises, new PaisPaisComparator());
+            paises.sort(new PaisPaisComparator());
         }
         return true;
     }
@@ -30,7 +29,7 @@ public class PaisCtrl {
             Pais p = PaisDAO.getBy(paisX.getPais());
             int n = getIndexOfBy(p.getPais());
             paises.set(n, p);
-            Collections.sort(paises, new PaisPaisComparator());
+            paises.sort(new PaisPaisComparator());
         } else {
             return false;
         }
@@ -43,7 +42,7 @@ public class PaisCtrl {
         if (PaisDAO.delete(paisX)) {
             if (n != -1) {
                 paises.remove(n);
-                Collections.sort(paises, new PaisPaisComparator());
+                paises.sort(new PaisPaisComparator());
             }
         } else {
             return false;
@@ -53,9 +52,7 @@ public class PaisCtrl {
 
     public int getIndexOfBy(String paisX) {
         int n = -1;
-        Iterator<Pais> iterator = paises.iterator();
-        while (iterator.hasNext()) {
-            Pais p = iterator.next();
+        for (Pais p : paises) {
             if (p.getPais().equals(paisX)) {
                 n = paises.indexOf(p);
                 break;
@@ -66,9 +63,7 @@ public class PaisCtrl {
 
     public Pais getBy(String paisX) {
         Pais p = null;
-        Iterator<Pais> iterator = paises.iterator();
-        while (iterator.hasNext()) {
-            Pais x = iterator.next();
+        for (Pais x : paises) {
             if (x.getPais().equals(paisX)) {
                 p = x;
                 break;
@@ -100,6 +95,33 @@ public class PaisCtrl {
             }
         }
         return dtm;
+    }
+
+    public DefaultComboBoxModel getDefaultComboBoxModel() {
+        DefaultComboBoxModel dcbm = new DefaultComboBoxModel();
+        if (paises.size() > 0) {
+            for (Pais pais : paises) {
+                dcbm.addElement(pais.getPais());
+            }
+        }
+        return dcbm;
+    }
+
+    public String[] getPaisesToArray() {
+        return paises.stream()
+                .map(Pais::getPais)
+                .toArray(String[]::new);
+    }
+
+    public int getIndexOfPaisesArray(String paisStrX) {
+        int n = -1;
+        String[] sArr = getPaisesToArray();
+        for (int i = 0; i < sArr.length; i++){
+            if (sArr[i].equals(paisStrX)) {
+                return i;
+            }
+        }
+        return n;
     }
 
     public void getAll() {

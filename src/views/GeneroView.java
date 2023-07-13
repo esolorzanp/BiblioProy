@@ -2,7 +2,6 @@ package views;
 
 import controls.GeneroCtrl;
 import models.Genero;
-import models.Pais;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;

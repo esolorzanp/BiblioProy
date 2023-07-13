@@ -66,7 +66,8 @@ public class Editorial {
         return new String[]{
                 "Id",
                 "Editorial",
-                "Id Pais"
+                "Id Pais",
+                "Pais"
         };
     }
 
@@ -74,7 +75,8 @@ public class Editorial {
         return new String[]{
                 String.valueOf(getId()),
                 getEditorial(),
-                String.valueOf(getIdPais())
+                String.valueOf(getIdPais()),
+                ""
         };
     }
 }

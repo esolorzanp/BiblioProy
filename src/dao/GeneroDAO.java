@@ -11,7 +11,7 @@ public class GeneroDAO {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
-        boolean b = false;
+        boolean b;
 
         String sql = ("INSERT INTO GENEROS VALUES (NULL"
                 + ',' + '\'' + generoX.getGenero() + '\''
@@ -30,7 +30,7 @@ public class GeneroDAO {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
-        boolean b = false;
+        boolean b;
 
         String sql = "UPDATE GENEROS SET "
                 + "GENERO=" + '\'' + generoX.getGenero() + '\''
@@ -49,7 +49,7 @@ public class GeneroDAO {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
-        boolean b = true;
+        boolean b;
 
         String sql = "DELETE FROM GENEROS WHERE GENERO = '" + generox + '\'';
 
@@ -66,7 +66,6 @@ public class GeneroDAO {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
-        Genero x = null;
         boolean b = true;
 
         con.consultar("SELECT * FROM GENEROS WHERE GENERO = '" + generoX + '\'');
@@ -90,7 +89,6 @@ public class GeneroDAO {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
-        Genero x = null;
         boolean b = true;
 
         con.consultar("SELECT * FROM GENEROS WHERE ID = " + idX);

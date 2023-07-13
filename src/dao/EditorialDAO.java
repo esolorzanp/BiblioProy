@@ -7,15 +7,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class EditorialDAO {
-    public static boolean add(Editorial p) {
+    public static boolean add(Editorial editorialX) {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
-        boolean b = false;
+        boolean b;
 
         String sql = ("INSERT INTO EDITORIALES VALUES (NULL"
-                + ',' + '\'' + p.getEditorial() + '\''
-                + ',' + (p.getIdPais() != -1 ? p.getIdPais() : "NULL")
+                + ',' + '\'' + editorialX.getEditorial() + '\''
+                + ',' + (editorialX.getIdPais() != -1 ? editorialX.getIdPais() : "NULL")
                 + ')');
 
         b = con.actualizar(sql);
@@ -27,16 +27,16 @@ public class EditorialDAO {
         return b;
     }
 
-    public static boolean modify(Editorial p) {
+    public static boolean modify(Editorial editorialX) {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
-        boolean b = false;
+        boolean b;
 
         String sql = "UPDATE EDITORIALES SET "
-                + "EDITORIAL=" + '\'' + p.getEditorial() + '\''
-                + ',' + "IDPAIS=" + (p.getIdPais() != -1 ? p.getIdPais() : "NULL")
-                + " WHERE ID = " + p.getId();
+                + "EDITORIAL=" + '\'' + editorialX.getEditorial() + '\''
+                + ',' + "IDPAIS=" + (editorialX.getIdPais() != -1 ? editorialX.getIdPais() : "NULL")
+                + " WHERE ID = " + editorialX.getId();
 
         b = con.actualizar(sql);
 
@@ -51,7 +51,7 @@ public class EditorialDAO {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
-        boolean b = true;
+        boolean b;
 
         String sql = "DELETE FROM EDITORIALES WHERE EDITORIAL = '" + editorial + '\'';
 
@@ -64,14 +64,13 @@ public class EditorialDAO {
         return b;
     }
 
-    public static boolean exist(String editorial) {
+    public static boolean existWithWhereEditorial(String editorialX) {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
-        Editorial p = null;
         boolean b = true;
 
-        con.consultar("SELECT * FROM EDITORIALES WHERE EDITORIAL = '" + editorial + '\'');
+        con.consultar("SELECT * FROM EDITORIALES WHERE EDITORIAL = '" + editorialX + '\'');
         try {
             if (!con.rs.next()) {
                 b = false;
@@ -88,7 +87,30 @@ public class EditorialDAO {
         return b;
     }
 
-    public static Editorial getBy(String editorial) {
+    public static boolean existWithWhereId(int idX) {
+        ConexionDB con = new ConexionDB();
+        con.cargarDatosConexion();
+        con.cargarConexion();
+        boolean b = true;
+
+        con.consultar("SELECT * FROM EDITORIALES WHERE ID = '" + idX + '\'');
+        try {
+            if (!con.rs.next()) {
+                b = false;
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getCause());
+            ex.printStackTrace();
+        } finally {
+            con.cerrarRs();
+            con.cerrarStmt();
+            con.cerrarConexion();
+        }
+        return b;
+    }
+
+    public static Editorial getBy(String editorialX) {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
@@ -96,7 +118,7 @@ public class EditorialDAO {
 
         con.consultar("SELECT * FROM EDITORIALES " +
                 " LEFT JOIN PAISES ON PAISES.ID = IDPAIS " +
-                "WHERE EDITORIAL = '" + editorial + '\'');
+                "WHERE EDITORIAL = '" + editorialX + '\'');
         try {
             if (con.rs.next()) {
                 p.setId(con.rs.getInt("ID"));
@@ -115,7 +137,7 @@ public class EditorialDAO {
         return p;
     }
 
-    public static Editorial getBy(int id) {
+    public static Editorial getBy(int idX) {
         ConexionDB con = new ConexionDB();
         con.cargarDatosConexion();
         con.cargarConexion();
@@ -123,7 +145,7 @@ public class EditorialDAO {
 
         con.consultar("SELECT * FROM EDITORIALES " +
                 " LEFT JOIN PAISES ON PAISES.ID = IDPAIS " +
-                "WHERE EDITORIALES.ID = " + id);
+                "WHERE EDITORIALES.ID = " + idX);
         try {
             if (con.rs.next()) {
                 p.setId(con.rs.getInt("ID"));
@@ -171,45 +193,38 @@ public class EditorialDAO {
         return personas;
     }
 
-    public static void main(String[] args) {
-        Editorial e1 = new Editorial("Voluntad");
-        Editorial e2 = new Editorial("Omega");
-        Editorial e3 = new Editorial("Oveja Negra");
+    public static List<Editorial> getAllWithWhereEditorial(String editorialX) {
+        ConexionDB con = new ConexionDB();
+        con.cargarDatosConexion();
+        con.cargarConexion();
+        List<Editorial> personas = new ArrayList<>();
 
-
-        System.out.println(e1);
-        System.out.println("Existe " + e1 + ':' + EditorialDAO.exist(e1.getEditorial()));
-
-        if (!EditorialDAO.exist(e1.getEditorial()))
-            System.out.println("Agregar " + e1 + ':' + EditorialDAO.add(e1));
-
-        System.out.println("Existe " + e2 + ':' + EditorialDAO.exist(e2.getEditorial()));
-
-        if (!EditorialDAO.exist(e2.getEditorial()))
-            System.out.println("Agregar " + e2 + ':' + EditorialDAO.add(e2));
-
-        System.out.println("Existe " + e3 + ':' + EditorialDAO.exist(e3.getEditorial()));
-
-        if (!EditorialDAO.exist(e3.getEditorial()))
-            System.out.println("Agregar " + e3 + ':' + EditorialDAO.add(e3));
-
-        String edit = "Oveja azul";
-        Editorial e4 = new Editorial(edit);
-        EditorialDAO.add(e4);
-        if (EditorialDAO.exist(edit)) {
-            e4 = EditorialDAO.getBy(edit);
-            System.out.println(e4);
-            e4.setEditorial("Lobo negro");
-            System.out.println("Modificar " + e4 + ':' + EditorialDAO.modify(e4));
+        String sql = "SELECT * FROM EDITORIALES " +
+                "LEFT JOIN PAISES ON PAISES.ID = IDPAIS " +
+                "WHERE EDITORIAL LIKE '%" + editorialX + "%' " +
+                "ORDER BY EDITORIAL";
+        con.consultar(sql);
+        System.out.println(sql);
+        try {
+            while (con.rs.next()) {
+                Editorial p = new Editorial();
+                p.setId(con.rs.getInt("ID"));
+                p.setEditorial(con.rs.getString("EDITORIAL"));
+                p.setIdPais(con.rs.getInt("IDPAIS") != 0 ? con.rs.getInt("IDPAIS") : -1);
+                personas.add(p);
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+            System.out.println(ex.getCause());
+            ex.printStackTrace();
+        } finally {
+            con.cerrarRs();
+            con.cerrarStmt();
+            con.cerrarConexion();
         }
-
-        Editorial e5 = EditorialDAO.getBy(5);
-        System.out.println("Eliminar " + e5 + ':' + EditorialDAO.delete(e5.getEditorial()));
-
-        List<Editorial> es = EditorialDAO.getAll();
-        for (Editorial e : es) {
-            System.out.println(e);
-        }
+        return personas;
     }
 
+    public static void main(String[] args) {
+    }
 }
