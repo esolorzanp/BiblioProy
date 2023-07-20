@@ -2,17 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7544394e-e81a-4347-b371-5a88381341f1" name="Changes" comment="** Modificación nombres parametros con Genero">
-      <change afterPath="$PROJECT_DIR$/src/controls/comparate/EditorialEditorialComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/EditorialView.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/EditorialView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controls/PersonaCtrl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controls/UsuarioCtrl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controls/comparate/ApellidosNombresPersonaComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/controls/comparate/UsuarioUsuarioComparator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/dao/UsuarioDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/models/Usuario.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/UsuarioView.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/UsuarioView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controls/EditorialCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controls/EditorialCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controls/GeneroCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controls/GeneroCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/controls/PaisCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controls/PaisCtrl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/EditorialDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/EditorialDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/GeneroDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/GeneroDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/Editorial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Editorial.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/views/GeneroView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GeneroView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/dao/PersonaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PersonaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/EditorialView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/EditorialView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +57,7 @@
       <recent name="D:\Uniajc\Personal\BiblioProyDemo\src\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.EditorialView">
+  <component name="RunManager" selected="Application.UsuarioView">
     <configuration name="EditorialView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="views.EditorialView" />
       <module name="BiblioProyDemo" />
@@ -110,19 +110,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PaisCtrl" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="controls.PaisCtrl" />
-      <module name="BiblioProyDemo" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="controls.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="PaisView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="views.PaisView" />
       <module name="BiblioProyDemo" />
@@ -136,13 +123,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="UsuarioView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="views.UsuarioView" />
+      <module name="BiblioProyDemo" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="views.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.UsuarioView" />
         <item itemvalue="Application.EditorialView" />
         <item itemvalue="Application.PaisView" />
         <item itemvalue="Application.GeneroView" />
         <item itemvalue="Application.GeneroQry" />
-        <item itemvalue="Application.PaisCtrl" />
       </list>
     </recent_temporary>
   </component>

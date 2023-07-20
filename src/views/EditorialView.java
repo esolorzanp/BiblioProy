@@ -39,7 +39,6 @@ public class EditorialView extends JDialog {
         setModal(true);
         getRootPane().setDefaultButton(buttonOK);
 
-
         cargarJTable();
         cargarPaisesComboBox();
         newButton.setEnabled(true);
