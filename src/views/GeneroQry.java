@@ -72,7 +72,8 @@ public class GeneroQry extends JDialog {
     }
 
     private void cargarDtm() {
-        DefaultTableModel dtm = generoCtrl.getDefaultTableModel();
+        String[] c = {"Id", "Género", "Género"};
+        DefaultTableModel dtm = generoCtrl.getDefaultTableModel(c);
         tableGeneros.setModel(dtm);
     }
 

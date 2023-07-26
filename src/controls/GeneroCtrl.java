@@ -79,18 +79,17 @@ public class GeneroCtrl {
         return GeneroDAO.existWithWhereId(idX);
     }
 
-    public DefaultTableModel getDefaultTableModel() {
+    public DefaultTableModel getDefaultTableModel(String[] columns) {
         DefaultTableModel dtm = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
-        Genero generoX = new Genero();
-        dtm.setColumnIdentifiers(generoX.getTitles());
+        dtm.setColumnIdentifiers(columns);
         if (generos.size() > 0) {
             for (Genero g : generos) {
-                dtm.addRow(g.getData());
+                dtm.addRow(g.getData(columns));
             }
         }
         return dtm;

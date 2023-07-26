@@ -1,5 +1,8 @@
 package models;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Pais {
     private int id;
     private String pais;
@@ -61,19 +64,21 @@ public class Pais {
                 '}';
     }
 
-    public String[] getTitles() {
-        return new String[]{
-                "Id",
-                "Pais",
-                "Code"
-        };
+    private Map<String, String> getTitlesColumnsMap() {
+        Map<String, String> m = new HashMap<>();
+        m.put("Id", String.valueOf(getId()));
+        m.put("Pais", getPais());
+        m.put("Code", getCode());
+        return m;
     }
 
-    public String[] getData() {
-        return new String[]{
-                String.valueOf(getId()),
-                getPais(),
-                getCode()
-        };
+    public String[] getData(String[] columns) {
+        Map<String, String> m = getTitlesColumnsMap();
+        String[] d = new String[columns.length];
+
+        for (int i = 0; i < columns.length; i++) {
+            d[i] = m.get(columns[i]);
+        }
+        return d;
     }
 }

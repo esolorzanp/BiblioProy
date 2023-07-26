@@ -2,17 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7544394e-e81a-4347-b371-5a88381341f1" name="Changes" comment="** Modificación nombres parametros con Genero">
-      <change afterPath="$PROJECT_DIR$/src/controls/PersonaCtrl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controls/UsuarioCtrl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controls/comparate/ApellidosNombresPersonaComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/controls/comparate/UsuarioUsuarioComparator.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/dao/UsuarioDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/Usuario.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/UsuarioView.form" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/views/UsuarioView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/PersonaView.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/views/PersonaView.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/dao/PersonaDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/dao/PersonaDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controls/EditorialCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controls/EditorialCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controls/GeneroCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controls/GeneroCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controls/PaisCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controls/PaisCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controls/PersonaCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controls/PersonaCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/controls/UsuarioCtrl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/controls/UsuarioCtrl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Autor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Autor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Editorial.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Editorial.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Genero.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Genero.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Libro.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Libro.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Pais.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Pais.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Persona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/models/Usuario.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/Usuario.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/EditorialView.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/EditorialView.form" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/views/EditorialView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/EditorialView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/GeneroQry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GeneroQry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/GeneroView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/GeneroView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/PaisView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/PaisView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/views/UsuarioView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/views/UsuarioView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +67,7 @@
       <recent name="D:\Uniajc\Personal\BiblioProyDemo\src\utils" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.UsuarioView">
+  <component name="RunManager" selected="Application.EditorialView">
     <configuration name="EditorialView" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="views.EditorialView" />
       <module name="BiblioProyDemo" />
@@ -138,10 +148,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.UsuarioView" />
         <item itemvalue="Application.EditorialView" />
-        <item itemvalue="Application.PaisView" />
+        <item itemvalue="Application.UsuarioView" />
         <item itemvalue="Application.GeneroView" />
+        <item itemvalue="Application.PaisView" />
         <item itemvalue="Application.GeneroQry" />
       </list>
     </recent_temporary>

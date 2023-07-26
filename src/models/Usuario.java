@@ -1,5 +1,8 @@
 package models;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Usuario {
     private int id;
     private String usuario;
@@ -108,28 +111,24 @@ public class Usuario {
                 '}';
     }
 
-    public String[] getTitles() {
-        return new String[]{
-                "Id",
-                "Usuario",
-                "Nombres",
-                "Apellidos",
-                "Email",
-//                "Password",
-                "Perfil"
-        };
+    private Map<String, String> getTitlesColumnsMap() {
+        Map<String, String> m = new HashMap<>();
+        m.put("Id", String.valueOf(getId()));
+        m.put("Usuario", getUsuario());
+        m.put("Nombres", getNombres());
+        m.put("Apellidos", getApellidos());
+        m.put("Email", getEmail());
+        m.put("Perfil", String.valueOf(getPerfil()));
+        return m;
     }
 
-    public String[] getData() {
-        return new String[]{
-                String.valueOf(id),
-                usuario,
-                nombres,
-                apellidos,
-                email,
-//                password,
-                String.valueOf(perfil)
-        };
-    }
+    public String[] getData(String[] columns) {
+        Map<String, String> m = getTitlesColumnsMap();
+        String[] d = new String[columns.length];
 
+        for (int i = 0; i < columns.length; i++) {
+            d[i] = m.get(columns[i]);
+        }
+        return d;
+    }
 }

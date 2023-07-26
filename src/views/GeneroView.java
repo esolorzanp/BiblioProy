@@ -99,7 +99,7 @@ public class GeneroView extends JDialog {
     private void updateDataFieldsFormFromJTable(int row, int column) {
         if (row >= 0 && column >= 0) {
             rowToSelect = row;
-            String g = String.valueOf(tableGeneros.getValueAt(row, 1));
+            String g = String.valueOf(tableGeneros.getValueAt(row, 0));
             generoSelected = generoCtrl.getBy(g);
             textFieldGenero.setText(g);
             textFieldGenero.setEnabled(true);
@@ -252,7 +252,8 @@ public class GeneroView extends JDialog {
     }
 
     private void cargarJTable() {
-        DefaultTableModel dtm = generoCtrl.getDefaultTableModel();
+        String[] c = {"Género"};
+        DefaultTableModel dtm = generoCtrl.getDefaultTableModel(c);
         tableGeneros.setModel(dtm);
     }
 

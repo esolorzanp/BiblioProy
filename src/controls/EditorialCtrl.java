@@ -82,22 +82,21 @@ public class EditorialCtrl {
         return EditorialDAO.existWithWhereId(idX);
     }
 
-    public DefaultTableModel getDefaultTableModel() {
+    public DefaultTableModel getDefaultTableModel(String[] columns) {
         DefaultTableModel dtm = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
-        Editorial editorialX = new Editorial();
-        dtm.setColumnIdentifiers(editorialX.getTitles());
+        dtm.setColumnIdentifiers(columns);
         if (editoriales.size() > 0) {
             for (Editorial e : editoriales) {
-                String[] d = e.getData();
-                int idPaisX = Integer.parseInt(String.valueOf(e.getData()[2]));
+                String[] d = e.getData(columns);
+                int idPaisX = e.getIdPais();
                 if (idPaisX != -1 && PaisDAO.existWithWhereId(idPaisX)) {
                     Pais p = PaisDAO.getBy(idPaisX);
-                    d[3] = p.getPais();
+                    d[1] = p.getPais();
                 }
                 dtm.addRow(d);
             }

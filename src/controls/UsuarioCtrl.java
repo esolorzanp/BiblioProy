@@ -89,21 +89,20 @@ public class UsuarioCtrl {
         return UsuarioDAO.existWithWhereId(idX);
     }
 
-    public DefaultTableModel getDefaultTableModel() {
+    public DefaultTableModel getDefaultTableModel(String[] columns) {
         DefaultTableModel dtm = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
-        Usuario usuarioX = new Usuario();
-        dtm.setColumnIdentifiers(usuarioX.getTitles());
+        dtm.setColumnIdentifiers(columns);
         if (usuarios.size() > 0) {
             for (Usuario usuario : usuarios) {
-                String[] u = usuario.getData();
-                String s = u[5];
+                String[] u = usuario.getData(columns);
+                String s = u[4];
                 char c = s.charAt(0);
-                u[5] = perfilesMap.get(c);
+                u[4] = perfilesMap.get(c);
                 dtm.addRow(u);
             }
         }
@@ -131,17 +130,6 @@ public class UsuarioCtrl {
         return usuarios.stream()
                 .map(Usuario::getUsuario)
                 .toArray(String[]::new);
-    }
-
-    public int getIndexOfPaisesArray(String usuarioStrX) {
-        int n = -1;
-        String[] sArr = getUsuarioToArray();
-        for (int i = 0; i < sArr.length; i++) {
-            if (sArr[i].equals(usuarioStrX)) {
-                return i;
-            }
-        }
-        return n;
     }
 
     public void getAll() {

@@ -83,19 +83,18 @@ public class PersonaCtrl {
         return PersonaDAO.existWithWhereId(idX);
     }
 
-    public DefaultTableModel getDefaultTableModel() {
+    public DefaultTableModel getDefaultTableModel(String[] columns) {
         DefaultTableModel dtm = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
-        Persona personaX = new Persona();
-        dtm.setColumnIdentifiers(personaX.getTitles());
+        dtm.setColumnIdentifiers(columns);
         if (personas.size() > 0) {
             for (Persona e : personas) {
-                String[] d = e.getData();
-                int idPaisX = Integer.parseInt(String.valueOf(e.getData()[2]));
+                String[] d = e.getData(columns);
+                int idPaisX = e.getIdPais();
                 if (idPaisX != -1 && PaisDAO.existWithWhereId(idPaisX)) {
                     Pais p = PaisDAO.getBy(idPaisX);
                     d[3] = p.getPais();

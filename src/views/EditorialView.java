@@ -115,12 +115,16 @@ public class EditorialView extends JDialog {
     private void updateDataFieldsFormFromJTable(int row, int column) {
         if (row >= 0 && column >= 0) {
             rowToSelect = row;
-            String editorialStr = String.valueOf(editorialesTable.getValueAt(row, 1));
-            int idPais = Integer.parseInt((String) editorialesTable.getValueAt(row, 2));
+            String editorialStr = String.valueOf(editorialesTable.getValueAt(row, 0));
+            String paisStr = (String) editorialesTable.getValueAt(row, 1);
             editorialSelected = editorialCtrl.getBy(editorialStr);
             editorialTextField.setText(editorialStr);
             editorialTextField.setEnabled(true);
-            paisesComboBox.setSelectedIndex(idPais);
+            if (!paisStr.isEmpty()) {
+                paisesComboBox.setSelectedItem(paisStr);
+            } else {
+                paisesComboBox.setSelectedIndex(-1);
+            }
             paisesComboBox.setEnabled(true);
             addButton.setEnabled(false);
             modifyButton.setEnabled(true);
@@ -278,7 +282,8 @@ public class EditorialView extends JDialog {
     }
 
     private void cargarJTable() {
-        DefaultTableModel dtm = editorialCtrl.getDefaultTableModel();
+        String[] c = {"Editorial", "Pais"};
+        DefaultTableModel dtm = editorialCtrl.getDefaultTableModel(c);
         editorialesTable.setModel(dtm);
     }
 

@@ -1,6 +1,8 @@
 package models;
 
 import java.sql.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 public class Persona {
     private int id;
@@ -204,36 +206,29 @@ public class Persona {
                 '}' + '\n';
     }
 
-    public String[] getTitles() {
-        return new String[]{
-                "Id",
-                "Tipo",
-                "Identificacion",
-                "Nombres",
-                "Apellidos",
-                "Fecha nacimiento",
-                "Id pais",
-                "e-mail",
-                "Sexo",
-                "Id Representante Legal",
-                "Razon social"
-        };
+    private Map<String, String> getTitlesColumnsMap() {
+        Map<String, String> m = new HashMap<>();
+        m.put("Id", String.valueOf(getId()));
+        m.put("Tipo", String.valueOf(getTipo()));
+        m.put("Identificación", getIdentificacion());
+        m.put("Nombres", getNombres());
+        m.put("Apellidos", getApellidos());
+        m.put("Fecha nacimiento", String.valueOf(getFechaNacimiento()));
+        m.put("id Pais", String.valueOf(getIdPais()));
+        m.put("e-amil", getEmail());
+        m.put("Sexo", String.valueOf(getSexo()));
+        m.put("Id representante legal", String.valueOf(getIdRepresentanteLegal()));
+        m.put("Razón social", getRazonSocial());
+        return m;
     }
 
-    public String[] getData() {
-        return new String[]{
-                String.valueOf(getId()),
-                String.valueOf(getTipo()),
-                String.valueOf(getIdentificacion()),
-                getNombres(),
-                getApellidos(),
-                getFechaNacimiento().toString(),
-                String.valueOf(getIdPais()),
-                getEmail(),
-                String.valueOf(getSexo()),
-                String.valueOf(getIdRepresentanteLegal()),
-                getRazonSocial()
+    public String[] getData(String[] columns) {
+        Map<String, String> m = getTitlesColumnsMap();
+        String[] d = new String[columns.length];
 
-        };
+        for (int i = 0; i < columns.length; i++) {
+            d[i] = m.get(columns[i]);
+        }
+        return d;
     }
 }

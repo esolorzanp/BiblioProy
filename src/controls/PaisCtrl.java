@@ -80,18 +80,17 @@ public class PaisCtrl {
         return PaisDAO.existWithWhereId(idX);
     }
 
-    public DefaultTableModel getDefaultTableModel() {
+    public DefaultTableModel getDefaultTableModel(String[] columns) {
         DefaultTableModel dtm = new DefaultTableModel() {
             @Override
             public boolean isCellEditable(int row, int column) {
                 return false;
             }
         };
-        Pais paisX = new Pais();
-        dtm.setColumnIdentifiers(paisX.getTitles());
+        dtm.setColumnIdentifiers(columns);
         if (paises.size() > 0) {
             for (Pais pais : paises) {
-                dtm.addRow(pais.getData());
+                dtm.addRow(pais.getData(columns));
             }
         }
         return dtm;
@@ -107,6 +106,16 @@ public class PaisCtrl {
         return dcbm;
     }
 
+//    public DefaultComboBoxModel getDefaultComboBoxModel(String[] columns) {
+//        DefaultComboBoxModel dcbm = new DefaultComboBoxModel();
+//        if (paises.size() > 0) {
+//            for (Pais pais : paises) {
+//                dcbm.addElement(pais.getPais());
+//            }
+//        }
+//        return dcbm;
+//    }
+
     public String[] getPaisesToArray() {
         return paises.stream()
                 .map(Pais::getPais)
@@ -116,7 +125,7 @@ public class PaisCtrl {
     public int getIndexOfPaisesArray(String paisStrX) {
         int n = -1;
         String[] sArr = getPaisesToArray();
-        for (int i = 0; i < sArr.length; i++){
+        for (int i = 0; i < sArr.length; i++) {
             if (sArr[i].equals(paisStrX)) {
                 return i;
             }

@@ -123,7 +123,7 @@ public class UsuarioView extends JDialog {
     private void updateDataFieldsFormFromJTable(int row, int column) {
         if (row >= 0 && column >= 0) {
             rowToSelect = row;
-            String usuarioStr = String.valueOf(usuariosTable.getValueAt(row, 1));
+            String usuarioStr = String.valueOf(usuariosTable.getValueAt(row, 0));
             Usuario usuario = usuarioCtrl.getBy(usuarioStr);
             String nombresStr = usuario.getNombres();
             String apellidosStr = usuario.getApellidos();
@@ -378,7 +378,14 @@ public class UsuarioView extends JDialog {
     }
 
     private void cargarJTable() {
-        DefaultTableModel dtm = usuarioCtrl.getDefaultTableModel();
+        String[] c = {
+                "Usuario",
+                "Nombres",
+                "Apellidos",
+                "Email",
+                "Perfil"
+        };
+        DefaultTableModel dtm = usuarioCtrl.getDefaultTableModel(c);
         usuariosTable.setModel(dtm);
     }
 

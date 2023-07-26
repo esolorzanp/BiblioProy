@@ -112,8 +112,8 @@ public class PaisView extends JDialog {
     private void updateDataFieldsFormFromJTable(int row, int column) {
         if (row >= 0 && column >= 0) {
             rowToSelect = row;
-            String paisStr = String.valueOf(paisesTable.getValueAt(row, 1));
-            String codeStr = String.valueOf(paisesTable.getValueAt(row, 2));
+            String paisStr = String.valueOf(paisesTable.getValueAt(row, 0));
+            String codeStr = String.valueOf(paisesTable.getValueAt(row, 1));
             paisSelected = paisCtrl.getBy(paisStr);
             paisTextField.setText(paisStr);
             paisTextField.setEnabled(true);
@@ -276,7 +276,8 @@ public class PaisView extends JDialog {
     }
 
     private void cargarJTable() {
-        DefaultTableModel dtm = paisCtrl.getDefaultTableModel();
+        String[] c = {"Pais", "Code"};
+        DefaultTableModel dtm = paisCtrl.getDefaultTableModel(c);
         paisesTable.setModel(dtm);
     }
 

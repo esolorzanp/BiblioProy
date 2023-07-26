@@ -1,5 +1,8 @@
 package models;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Libro {
     private int id;
     private String titulo;
@@ -121,29 +124,26 @@ public class Libro {
                 '}' + '\n';
     }
 
-    public String[] getTitles() {
-        return new String[]{
-                "Id",
-                "Titulo",
-                "Id autor",
-                "Id editorial",
-                "Id genero",
-                "Año publicacion",
-                "Prestado en",
-                "Dias prestamo"
-        };
+    private Map<String, String> getTitlesColumnsMap() {
+        Map<String, String> m = new HashMap<>();
+        m.put("Id", String.valueOf(getId()));
+        m.put("Título", getTitulo());
+        m.put("Id Autor", String.valueOf(getIdAutor()));
+        m.put("Id Editorial", String.valueOf(getIdEditorial()));
+        m.put("Id Genero", String.valueOf(getIdGenero()));
+        m.put("Año publicación", String.valueOf(getAnoPublicacion()));
+        m.put("Prestado en", String.valueOf(getPrestadoEn()));
+        m.put("Días préstamo", String.valueOf(getDiasPrestamo()));
+        return m;
     }
 
-    public String[] getData() {
-        return new String[]{
-                String.valueOf(getId()),
-                getTitulo(),
-                String.valueOf(getIdAutor()),
-                String.valueOf(getIdEditorial()),
-                String.valueOf(getIdGenero()),
-                String.valueOf(getAnoPublicacion()),
-                String.valueOf(getPrestadoEn()),
-                String.valueOf(getDiasPrestamo())
-        };
+    public String[] getData(String[] columns) {
+        Map<String, String> m = getTitlesColumnsMap();
+        String[] d = new String[columns.length];
+
+        for (int i = 0; i < columns.length; i++) {
+            d[i] = m.get(columns[i]);
+        }
+        return d;
     }
 }

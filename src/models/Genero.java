@@ -1,5 +1,8 @@
 package models;
 
+import java.util.HashMap;
+import java.util.Map;
+
 public class Genero {
     private int id;
     private String genero;
@@ -39,21 +42,31 @@ public class Genero {
     public String toString() {
         return "Genero = {" +
                 "id=" + id +
-                ", genero='" + genero + '\'' +
+                ", género='" + genero + '\'' +
                 '}';
     }
 
     public String[] getTitles() {
         return new String[]{
                 "Id",
-                "Genero"
+                "Género"
         };
     }
 
-    public String[] getData() {
-        return new String[]{
-                String.valueOf(getId()),
-                getGenero()
-        };
+    private Map<String, String> getTitlesColumnsMap() {
+        Map<String, String> m = new HashMap<>();
+        m.put("Id", String.valueOf(getId()));
+        m.put("Género", getGenero());
+        return m;
+    }
+
+    public String[] getData(String[] columns) {
+        Map<String, String> m = getTitlesColumnsMap();
+        String[] d = new String[columns.length];
+
+        for (int i = 0; i < columns.length; i++) {
+            d[i] = m.get(columns[i]);
+        }
+        return d;
     }
 }
